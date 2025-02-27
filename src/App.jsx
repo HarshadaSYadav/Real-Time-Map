@@ -245,7 +245,7 @@ function App() {
     <div className="app-container">
       <div className="sidebar">
         <div className="form-container">
-          <h1>🌎 Explore Locations</h1>
+          <h1>🌎 Search Locations</h1>
           
           <form onSubmit={handleSetLocations}>
             <div className="input-group">
