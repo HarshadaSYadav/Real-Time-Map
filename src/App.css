@@ -1,0 +1,180 @@
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #6366F1, #A855F7);
+}
+
+.sidebar {
+  width: 30%;
+  min-width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  z-index: 1000; /* Ensure sidebar is above map */
+}
+
+.form-container {
+  margin-top: 350px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  z-index: 1001; /* Ensure form is above other elements */
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1002; /* Ensure inputs are clickable */
+}
+
+input.location-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  cursor: text;
+  position: relative;
+  z-index: 1002; /* Ensure inputs are clickable */
+  color: black; /* Change text color to black */
+}
+
+input.location-input::placeholder {
+  color: #555; /* Darker placeholder text for better visibility */
+}
+
+input.location-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  background: white;
+}
+
+.set-btn {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: #4ADE80;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1002; /* Ensure buttons are clickable */
+}
+
+.set-btn:hover {
+  background-color: #22C55E;
+  transform: translateY(-2px);
+}
+
+.swap-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #F472B6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1002; /* Ensure buttons are clickable */
+}
+
+.swap-btn:hover {
+  background-color: #EC4899;
+  transform: translateY(-2px);
+}
+
+.map-container {
+  margin-top: 100px;
+  flex: 1;
+  height: 80%;
+  position: relative;
+  z-index: 900; /* Ensure map is below sidebar */
+}
+
+.distance-display {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+  z-index: 1001; /* Ensure distance display is visible */
+}
+
+/* Leaflet specific styles */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.leaflet-routing-container {
+  display: none !important;
+}
+
+/* Ensure leaflet controls are clickable */
+.leaflet-control-container {
+  z-index: 1000;
+}
+
+/* Custom route line style */
+.custom-route-line {
+  stroke: #FF0000;
+  stroke-width: 6;
+  stroke-opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    padding: 10px;
+    height: auto;
+  }
+  
+  .map-container {
+    height: 70vh;
+  }
+}
