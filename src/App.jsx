@@ -250,13 +250,22 @@ function App() {
           <form onSubmit={handleSetLocations}>
             <div className="input-group">
               <input
-                type="text"
-                value={startLocation}
-                onChange={handleStartLocationChange}
-                placeholder="🔴 Start Location"
-                required
-                className="location-input"
-              />
+              type="text"
+              value={startLocation}
+              onChange={(e) => setStartLocation(e.target.value)}
+              placeholder="Enter start location or postal code"
+              onFocus={() => setShowLocationDropdown(true)}
+            />
+            {showLocationDropdown && (
+              <div className="location-dropdown">
+                <div 
+                  className="location-option"
+                  onClick={handleUseCurrentLocation}
+                >
+                  <span className="location-icon">📍</span>
+                  <span>{isLocating ? 'Locating...' : 'Your location'}</span>
+                </div>
+              </div>
             </div>
             
             <div className="input-group">
